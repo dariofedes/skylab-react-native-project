@@ -1,0 +1,24 @@
+{
+    "name": "skylab",
+    "version": "0.0.1",
+    "private": true,
+    "scripts": {
+      "test": "yarn workspaces run test",
+      "lint": "yarn workspaces run lint"
+    },
+    "workspaces": ["packages/client-logic", "packages/utils"],
+    "dependencies": {
+      "react": "16.11.0",
+      "react-native": "0.62.2"
+    },
+    "devDependencies": {
+      "@babel/core": "^7.9.6",
+      "@babel/runtime": "^7.9.6",
+      "@react-native-community/eslint-config": "^1.1.0",
+      "babel-jest": "^26.0.1",
+      "eslint": "^7.1.0",
+      "metro-react-native-babel-preset": "^0.59.0",
+      "react-test-renderer": "16.11.0"
+    }
+  }
+  
