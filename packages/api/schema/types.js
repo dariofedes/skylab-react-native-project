@@ -51,7 +51,16 @@ const PostType = new GraphQLObjectType({
     })
 })
 
+const LoginType = new GraphQLObjectType({
+    name: 'Login',
+    fields: () => ({
+        user: { type: UserType },
+        token: { type: GraphQLString }
+    })
+})
+
 module.exports = {
     UserType,
-    PostType
+    PostType,
+    LoginType
 }

@@ -34,56 +34,35 @@ module.exports = new GraphQLObjectType({
                 return await retrieveUser(args.id)
             }
         },
-        nvmber: {
-            type: NvmberType,
-            args: { nvmber: { type: GraphQLInt } },
-            async resolve(parent, args) {
-                return await retrieveNvmber(args.nvmber)
-            }
-        },
-        nvmbers: {
-            type: GraphQLList(NvmberType),
-            async resolve() {
-                return await retrieveAllNvmbers()
-            }
-        },
-        searchUser: {
+        users: {
             type: GraphQLList(UserType),
-            args: { username: { type: GraphQLString } },
-            async resolve(parent, args) {
-                return await searchUser(args.username)
-            }
-        },
-        historical: {
-            type: HistoricalType,
-            args: { id: { type: GraphQLID }, publisher: { type: GraphQLID }, nvmber: { type: GraphQLInt } },
             async resolve(parent, args, context) {
                 const { headers: { authorization } } = context
                 const [ , token] = authorization.split(' ')
-                const { sub: retriever } = await jwt.verify(token, JWT_SECRET)
+                await jwt.verify(token, JWT_SECRET)
 
-                return await retrieveHistorical(args.id, retriever, args.publisher, args.nvmber)
+                return await retrieveAllUsers()
             }
         },
-        historicals: {
-            type: GraphQLList(HistoricalType),
+        post: {
+            type: PostType,
+            args: { id: { type: GraphQLID } },
+            async resolver(parent, args, context) {
+                const { headers: { authorization } } = context
+                const [ , token] = authorization.split(' ')
+                await jwt.verify(token, JWT_SECRET)
+
+                return await retrievePost(args.id)
+            }
+        },
+        posts: {
+            type: GraphQLList(PostType),
             async resolve(parent, args, context) {
                 const { headers: { authorization } } = context
                 const [ , token] = authorization.split(' ')
-                const { sub: retriever } = await jwt.verify(token, JWT_SECRET)
+                await jwt.verify(token, JWT_SECRET)
 
-                return await retrieveAllHistoricals(retriever, retriever)
-            }
-        },
-        historicalsByNvmber: {
-            type: GraphQLList(HistoricalType),
-            args: { nvmber: { type: GraphQLInt } },
-            async resolve(parent, args, context) {
-                const { headers: { authorization } } = context
-                const [ , token] = authorization.split(' ')
-                const { sub: retriever } = await jwt.verify(token, JWT_SECRET)
-
-                return await retrieveHistoricalsByNvmber(args.nvmber, retriever)
+                return await retrieveAllPosts()
             }
         }
     }
