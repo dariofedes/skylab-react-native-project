@@ -38,8 +38,23 @@ export const assertNumericParam = param => {
   }
 };
 
+/**
+ *
+ * @param {String} param // a string param to validate
+ *
+ * @throws {Error} if param does not exist or is not a string
+ */
+export const assertStringParam = param => {
+  this.assertParamExist(param);
+
+  if (typeof param !== 'string') {
+    throw new Error('Param must be a string');
+  }
+};
+
 export default {
   assertParamExist,
   assertDateParam,
   assertNumericParam,
+  assertStringParam,
 };
