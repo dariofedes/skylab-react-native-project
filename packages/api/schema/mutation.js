@@ -3,8 +3,7 @@ require('dotenv').config()
 const { env: { JWT_SECRET, JWT_EXP } } = process
 const {
     GraphQLObjectType,
-    GraphQLString,
-    GraphQLID,
+    GraphQLString
 } = require('graphql')
 const {
     UserType,
@@ -14,9 +13,9 @@ const {
 const {
     registerUser,
     authenticateUser,
-    postComment,
+    publishPost,
     updateUser
-} = require('nvmber-server-logic')
+} = require('server-logic')
 const jwt = require('jsonwebtoken')
 
 module.exports = new GraphQLObjectType({
@@ -55,16 +54,14 @@ module.exports = new GraphQLObjectType({
             type: PostType,
             args: {
                 title: { type: GraphQLString },
-                publisher: { type: GraphQLID },
-                // TODO image
+                image: { type: GraphQLString }
                 
             },
             async resolve(parent, args, context) {
                 const { headers: { authorization } } = context
                 const [ , token ] = authorization.split(' ')
                 const { sub: publisher } = await jwt.verify(token, JWT_SECRET)
-                
-                return await postComment(args.historicalId, publisher, args.text)
+                return await publishPost(publisher, args.title, args.image)
             }
         },
         
@@ -82,7 +79,7 @@ module.exports = new GraphQLObjectType({
                 const [ , token ] = authorization.split(' ')
                 const { sub: userId } = await jwt.verify(token, JWT_SECRET)
                 
-                return await updateUser(userId, args.username, args.email, args.password, args.newPassword)
+                return await updateUser(userId, args.username, args.email, args.password, args.newPassword, args.avatar)
             }
         }
     }

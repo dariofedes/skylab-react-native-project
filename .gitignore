@@ -63,3 +63,6 @@ buck-out/
 
 #jest
 coverage
+
+#NODE
+package-lock.json

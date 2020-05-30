@@ -4,7 +4,10 @@ const {
     GraphQLString,
     GraphQLList
 } = require('graphql')
-const { retrieveUser, retrieveUsersPosts } = require('server-logic')
+const {
+    retrieveUser,
+    retrieveUsersPosts
+} = require('server-logic')
 const jwt = require('jsonwebtoken')
 const { env: { JWT_SECRET } } = process
 
@@ -17,7 +20,6 @@ const UserType = new GraphQLObjectType({
         password: { type: GraphQLString },
         username: { type: GraphQLString },
         avatar: {type: GraphQLString},
-        created: { type: GraphQLDateTime },
         posts: {
             type: GraphQLList(PostType),
             async resolve(parent, args, context) {
@@ -25,7 +27,7 @@ const UserType = new GraphQLObjectType({
                 const [ , token] = authorization.split(' ')
                 await jwt.verify(token, JWT_SECRET)
 
-                return await retrieveUsersPosts(parent.id)
+                return await retrieveUsersPosts(parent.id.toString())
             }
         }
     })
@@ -45,7 +47,7 @@ const PostType = new GraphQLObjectType({
                 const [ , token] = authorization.split(' ')
                 await jwt.verify(token, JWT_SECRET)
 
-                return await retrieveUser(parent.publisher)
+                return await retrieveUser(parent.publisher.toString())
             }
         }
     })

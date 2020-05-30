@@ -2,7 +2,7 @@ require('dotenv').config()
 const express = require('express')
 const graphqlHTTP = require('express-graphql')
 const { env: { MONGODB_URL, PORT } } = process
-const { mongoose } = require('nvmber-data')
+const { mongoose } = require('data')
 const schema = require('./schema/schema');
 const cors = require('cors');
 
@@ -12,7 +12,6 @@ const cors = require('cors');
     const app = express()
 
     app.use(cors())
-    
     app.use('/graphql', graphqlHTTP({
         schema,
         graphiql: true

@@ -2,20 +2,15 @@ require('dotenv').config()
 const {
     GraphQLObjectType,
     GraphQLID,
-    GraphQLString,
-    GraphQLInt,
     GraphQLList
 } = require('graphql')
 const { UserType, PostType } = require('./types')
 const {
-    retrieveNvmber,
     retrieveUser,
-    searchUser,
-    retrieveHistorical,
-    retrieveAllNvmbers,
-    retrieveAllHistoricals,
-    retrieveHistoricalsByNvmber
-} = require('nvmber-server-logic')
+    retrieveAllUsers,
+    retrievePost,
+    retrieveAllPosts
+} = require('server-logic')
 const jwt = require('jsonwebtoken')
 const { env: { JWT_SECRET } } = process
 
@@ -47,7 +42,7 @@ module.exports = new GraphQLObjectType({
         post: {
             type: PostType,
             args: { id: { type: GraphQLID } },
-            async resolver(parent, args, context) {
+            async resolve(parent, args, context) {
                 const { headers: { authorization } } = context
                 const [ , token] = authorization.split(' ')
                 await jwt.verify(token, JWT_SECRET)
