@@ -1,4 +1,4 @@
-const { Schema } = require('mongoose')
+const { Schema, Types: { ObjectID } } = require('mongoose')
 const { Post } = require('../models')
 
 module.exports = new Schema({
@@ -7,5 +7,5 @@ module.exports = new Schema({
     username: { type: String, required: true, unique: true },
     created: { type: Date, required: true, default: new Date },
     avatar: {type: String, default: ''},
-    posts: { type: [ Post ], default: [ ] }
+    posts: { type: [ ObjectID ], default: [ ] }
 })
