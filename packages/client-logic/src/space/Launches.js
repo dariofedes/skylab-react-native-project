@@ -1,5 +1,5 @@
-import {sumDaysToDate, formatDate} from 'utils/src/Date';
-import {assertParamExist} from 'utils/src/Asserts';
+import {sumDaysToDate, formatDate} from '@skylab/utils/src/Date';
+import {assertParamExist} from '@skylab/utils/src/Asserts';
 import {executeRequest} from '.';
 
 /**

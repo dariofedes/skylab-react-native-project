@@ -1,5 +1,5 @@
 {
-  "name": "@skylab/client-logic",
+  "name": "@skylab/services",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,8 +8,6 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@skylab/utils": "*",
-    "axios": "^0.19.2",
     "react": "16.11.0",
     "react-native": "0.62.2"
   },

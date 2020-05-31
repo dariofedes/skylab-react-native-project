@@ -4,16 +4,24 @@ This packages contains all the client side logic. The authentication and the Spa
 
 ## run tests
 
+Inside the client-logic package root: 
+
 ```$ yarn run test```
 
-```$ yarn workspace client-logic test```
+Inside the project root: 
+
+```$ yarn workspace @skylab/client-logic test```
 
 
 ## run lint
 
+Inside the client-logic package root: 
+
 ```$ yarn run lint```
 
-```$ yarn workspace client-logic lint```
+Inside the project root: 
+
+```$ yarn workspace @skylab/client-logic lint```
 
 
 ### Contains:

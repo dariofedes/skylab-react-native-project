@@ -3,17 +3,17 @@ import {
   getRocketLaunchById,
   getRocketsLaunchesByDate,
   getRocketsLaunchesByDateRange,
-} from 'client-logic/src/space/Launches';
-import {executeRequest} from 'client-logic/src/space';
-import {assertParamExist} from 'utils/src/Asserts';
+} from '@skylab/client-logic/src/space/Launches';
+import {executeRequest} from '@skylab/client-logic/src/space';
+import {assertParamExist} from '@skylab/utils/src/Asserts';
 
-jest.mock('client-logic/src/space', () => ({
+jest.mock('@skylab/client-logic/src/space', () => ({
   executeRequest: jest.fn(),
 }));
-jest.mock('utils/src/Asserts', () => ({
+jest.mock('@skylab/utils/src/Asserts', () => ({
   assertParamExist: jest.fn(),
 }));
-jest.mock('utils/src/Date', () => ({
+jest.mock('@skylab/utils/src/Date', () => ({
   sumDaysToDate: jest.fn(),
   formatDate: jest.fn(() => '2020-10-03'),
 }));
