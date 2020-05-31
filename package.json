@@ -6,7 +6,15 @@
       "test": "yarn workspaces run test",
       "lint": "yarn workspaces run lint"
     },
-    "workspaces": ["packages/client-logic", "packages/utils"],
+    "workspaces": {
+      "packages": ["packages/*"],
+      "nohoist": [
+        "**/react-native",
+        "**/react-native/**",
+        "**/react",
+        "**/react/**"
+      ]
+    },
     "dependencies": {
       "react": "16.11.0",
       "react-native": "0.62.2"

@@ -1,4 +1,4 @@
-import {assertParamExist} from 'utils/src/Asserts';
+import {assertParamExist} from '@skylab/utils/src/Asserts';
 import {executeRequest} from '.';
 
 /**

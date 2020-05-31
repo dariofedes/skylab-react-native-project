@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {executeRequest} from 'client-logic/src/space';
+import {executeRequest} from '@skylab/client-logic/src/space';
 
 jest.mock('axios', () => ({
   get: jest.fn(() => Promise.resolve('result')),

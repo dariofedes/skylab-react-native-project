@@ -1,5 +1,5 @@
 {
-  "name": "@skylab/utils",
+  "name": "@skylab/services",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,9 +8,10 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "moment": "^2.26.0",
     "react": "16.11.0",
-    "react-native": "0.62.2"
+    "react-native": "0.62.2",
+    "react-native-image-picker": "2.3.1",
+    "react-native-root-toast": "3.2.1"
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",

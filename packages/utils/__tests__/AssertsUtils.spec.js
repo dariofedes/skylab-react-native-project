@@ -2,7 +2,7 @@ import {
   assertDateParam,
   assertNumericParam,
   assertParamExist,
-} from 'utils/src/Asserts';
+} from '@skylab/utils/src/Asserts';
 
 describe('Asserts Utils', () => {
   describe('Date Assert', () => {

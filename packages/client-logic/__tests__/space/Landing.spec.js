@@ -1,15 +1,15 @@
 import {
   getRocketsAllLandings,
-  getRocketLandingById,
-} from 'client-logic/src/space/Landing';
-import {executeRequest} from 'client-logic/src/space';
-import {assertParamExist} from 'utils/src/Asserts';
+  getRocketLandingById
+} from '@skylab/client-logic/src/space/Landing';
+import { executeRequest } from '@skylab/client-logic/src/space';
+import { assertParamExist } from '@skylab/utils/src/Asserts';
 
-jest.mock('client-logic/src/space', () => ({
-  executeRequest: jest.fn(),
+jest.mock('@skylab/client-logic/src/space', () => ({
+  executeRequest: jest.fn()
 }));
-jest.mock('utils/src/Asserts', () => ({
-  assertParamExist: jest.fn(),
+jest.mock('@skylab/utils/src/Asserts', () => ({
+  assertParamExist: jest.fn()
 }));
 
 describe('Landing Requests', () => {

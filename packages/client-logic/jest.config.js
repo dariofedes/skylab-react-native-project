@@ -1,18 +1,13 @@
+const defaultConfig = require('../../jest.config');
+
 module.exports = {
-  moduleDirectories: ['src', 'node_modules'],
-  preset: 'react-native',
-  moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'json', 'node'],
-  testPathIgnorePatterns: ['../../node_modules'],
-  coveragePathIgnorePatterns: ['../../node_modules'],
-  transformIgnorePatterns: [
-    '/node_modules/(?!react-native|react-clone-referenced-element|react-navigation)',
-  ],
+  ...defaultConfig,
   coverageThreshold: {
     global: {
-      branches: 90,
-      functions: 90,
-      lines: 90,
-      statements: 90,
+      branches: 70,
+      functions: 70,
+      lines: 70,
+      statements: 70,
     },
   },
 };
