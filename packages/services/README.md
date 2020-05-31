@@ -1,30 +1,30 @@
-# utils package
+# services package
 
-This packages contains different and reusable utils
+This packages contains different and reusable services
 
 ## run tests
 
-Inside the utils package root: 
+Inside the services package root: 
 
 ```$ yarn run test```
 
 Inside the project root: 
 
-```$ yarn workspace @skylab/utils test```
+```$ yarn workspace @skylab/services test```
 
 
 ## run lint
 
-Inside the utils package root: 
+Inside the services package root: 
 
 ```$ yarn run lint```
 
 Inside the project root: 
 
-```$ yarn workspace @skylab/utils lint```
+```$ yarn workspace @skylab/services lint```
 
 
 ### Contains:
 
-- Assert Utils
-- Date Utils
+- Image Picker
+- Toast
