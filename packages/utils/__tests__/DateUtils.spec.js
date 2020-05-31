@@ -1,4 +1,4 @@
-import {sumDaysToDate, formatDate} from 'utils/src/Date';
+import {sumDaysToDate, formatDate} from '@skylab/utils/src/Date';
 
 jest.mock('moment', () => {
   return () => jest.requireActual('moment')('2020-01-01T00:00:00.000Z');

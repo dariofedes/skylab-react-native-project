@@ -1,3 +1,11 @@
 {
-  "extends": "@react-native-community"
+  "extends": "@react-native-community",
+  "rules": {
+    "prettier/prettier": [
+      "error", {
+        "singleQuote": true, 
+        "comma-dangle": false,
+        "parser": "flow"
+      }]
+  }
 }

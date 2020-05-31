@@ -2,20 +2,20 @@ import {
   getRocketsAllLaunches,
   getRocketLaunchById,
   getRocketsLaunchesByDate,
-  getRocketsLaunchesByDateRange,
+  getRocketsLaunchesByDateRange
 } from '@skylab/client-logic/src/space/Launches';
-import {executeRequest} from '@skylab/client-logic/src/space';
-import {assertParamExist} from '@skylab/utils/src/Asserts';
+import { executeRequest } from '@skylab/client-logic/src/space';
+import { assertParamExist } from '@skylab/utils/src/Asserts';
 
 jest.mock('@skylab/client-logic/src/space', () => ({
-  executeRequest: jest.fn(),
+  executeRequest: jest.fn()
 }));
 jest.mock('@skylab/utils/src/Asserts', () => ({
-  assertParamExist: jest.fn(),
+  assertParamExist: jest.fn()
 }));
 jest.mock('@skylab/utils/src/Date', () => ({
   sumDaysToDate: jest.fn(),
-  formatDate: jest.fn(() => '2020-10-03'),
+  formatDate: jest.fn(() => '2020-10-03')
 }));
 
 describe('Launches Requests', () => {
@@ -36,7 +36,7 @@ describe('Launches Requests', () => {
       getRocketsLaunchesByDate('2020-10-01');
 
       expect(executeRequest).toHaveBeenCalledWith(
-        'launches?start=2020-10-01&end=2020-10-03',
+        'launches?start=2020-10-01&end=2020-10-03'
       );
     });
 
@@ -52,7 +52,7 @@ describe('Launches Requests', () => {
       getRocketsLaunchesByDateRange('2020-10-01', '2020-10-03');
 
       expect(executeRequest).toHaveBeenCalledWith(
-        'launches?start=2020-10-01&end=2020-10-03',
+        'launches?start=2020-10-01&end=2020-10-03'
       );
     });
 
