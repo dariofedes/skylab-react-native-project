@@ -3,7 +3,7 @@ const EMAIL_REGEX = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"
 const { models: { User } } = require('data')
 const { sanitize } = require('../utils')
 
-module.exports = (id, username, email, password, newPassword, avatar) => {
+module.exports = (id, email, username, avatar, password, newPassword) => {
     if(email && typeof email !== 'string') throw new Error('email must be a string')
     if(email && !EMAIL_REGEX.test(email)) throw new Error(`${email} is not an email`)
     if(username && typeof username !== 'string') throw new Error('username must be a string')
