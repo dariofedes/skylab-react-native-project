@@ -1,8 +1,10 @@
+// @ts-nocheck
 require('dotenv').config()
 const { env: { MONGODB_URL_TEST } } = process
+
+const { expect } = require('chai')
 const { mongoose, models: { User } } = require('@skylab/data')
 const updateUser = require('./update-User')
-const { expect } = require('chai')
 
 describe('updateUser', () => {
     let userId, email, username, password

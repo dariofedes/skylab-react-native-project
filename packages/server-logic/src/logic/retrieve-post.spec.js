@@ -1,8 +1,10 @@
+// @ts-nocheck
 require('dotenv').config()
 const { env: { MONGODB_URL_TEST } } = process
+
+const { expect } = require('chai')
 const { mongoose, models: { User, Post } } = require('@skylab/data')
 const retrievePost = require('./retrieve-post')
-const { expect } = require('chai')
 
 describe('retrievePost', () => {
     let postId, title, image, created

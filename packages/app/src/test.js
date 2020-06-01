@@ -18,7 +18,6 @@ import {
   Alert
 } from 'react-native';
 
-import Asset from './assets/image.jpg'
 
 const WIDTH = Dimensions.get('screen').width
 const HEIGHT = Dimensions.get('screen').height
@@ -90,12 +89,6 @@ const App = () => {
               resizeMode='contain'
               style={{ width: 300, height: 300 }}
               source={{uri: 'https://cdn.pixabay.com/photo/2020/04/21/18/49/tropical-5074304_1280.jpg'}}
-            />
-
-            <Image 
-              resizeMode='contain'
-              style={{ width: 300, height: 300 }}
-              source={Asset}
             />
 
             <TextInput 
