@@ -8,10 +8,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
-<<<<<<< HEAD
-=======
     "@skylab/utils": "*",
->>>>>>> 9155d9ee0356c2ad71636ecd7cedc6f21f51cf8a
     "axios": "^0.19.2",
     "graphql-request": "^2.0.0",
     "node-fetch": "^2.6.0",

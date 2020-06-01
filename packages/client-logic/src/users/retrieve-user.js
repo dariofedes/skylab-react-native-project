@@ -1,12 +1,13 @@
-const context = require('./context')
+const context = require('@skylab/services/src/Context')
 const { GraphQLClient } = require('graphql-request')
 
 module.exports = function (id) {
     if(typeof id !== 'string') throw new Error('id must be a string')
 
-    const token = this.storage.getItem('token')
     
     return (async () => {
+        const token = await this.storage.getItem('token')
+
         const client = new GraphQLClient(this.API_URL, {
             headers: {
                 Authorization: `Bearer ${token}`
