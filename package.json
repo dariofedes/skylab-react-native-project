@@ -2,19 +2,12 @@
     "name": "skylab",
     "version": "0.0.1",
     "private": true,
+    "main": "index.js",
     "scripts": {
       "test": "yarn workspaces run test",
       "lint": "yarn workspaces run lint"
     },
-    "workspaces": {
-      "packages": ["packages/*"],
-      "nohoist": [
-        "**/react-native",
-        "**/react-native/**",
-        "**/react",
-        "**/react/**"
-      ]
-    },
+    "workspaces": ["packages/*"],
     "dependencies": {
       "react": "16.11.0",
       "react-native": "0.62.2"

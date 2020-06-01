@@ -3,7 +3,7 @@ const EMAIL_REGEX = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"
 const context = require('@skylab/services/src/Context')
 const { request } = require('graphql-request')
 
-module.exports = function (email, username, password) {
+module.exports = function registerUser (email, username, password) {
     email = email.toLowerCase()
     
     if(typeof email !== 'string') throw new Error('email must be a string')
