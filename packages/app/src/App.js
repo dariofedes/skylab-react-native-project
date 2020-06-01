@@ -1,8 +1,8 @@
-/* eslint-disable react-native/no-inline-styles */
 import React, { useState } from 'react';
 import {View} from 'react-native';
 import Register from './compos/Register'
 import Login from './compos/Login'
+
 import registerUser from '@skylab/client-logic/src/users/registerUser'
 
 const App = () => {
@@ -12,7 +12,7 @@ const App = () => {
     setView('login')
   }
 
-  function handleOnSubmit() {
+  function handleOnSubmit(email, username, password) {
     // on submit
   }
   

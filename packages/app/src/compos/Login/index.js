@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import {
     View,
     Text,
@@ -15,10 +15,6 @@ import styles from './styles'
  * email and password
  */
 export default function Login() {
-    function onSubmit() {
-        console.log()
-    }
-
     return (
     <SafeAreaView style={{flex: 1 }}>
         <View style={styles.container}>
@@ -28,9 +24,6 @@ export default function Login() {
                 <TextInput style={styles.input}
                     placeholder="email"
                     keyboardType="email-address"
-                />
-                <TextInput style={styles.input}
-                    placeholder="username"
                 />
                 <TextInput style={styles.input}
                     placeholder="password"
