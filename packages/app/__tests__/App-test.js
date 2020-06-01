@@ -3,6 +3,8 @@ import React from 'react';
 import App from '@skylab/app/src/App';
 import renderer from 'react-test-renderer';
 
-it('renders correctly', () => {
-  renderer.create(<App />);
+describe('App', () => {
+  it('renders correctly', () => {
+    renderer.create(<App />)
+  });
 });

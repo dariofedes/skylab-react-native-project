@@ -2,7 +2,7 @@ require('dotenv').config()
 const express = require('express')
 const graphqlHTTP = require('express-graphql')
 const { env: { MONGODB_URL, PORT } } = process
-const { mongoose } = require('data')
+const { mongoose } = require('@skylab/data')
 const schema = require('./schema/schema');
 const cors = require('cors');
 

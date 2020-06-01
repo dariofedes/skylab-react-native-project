@@ -4,14 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx mocha logic"
+    "test": "npx mocha src/*"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "data": "file:../data",
-    "utils": "file:../utils"
+    "@skylab/data": "*"
   },
   "devDependencies": {
     "chai": "^4.2.0",
