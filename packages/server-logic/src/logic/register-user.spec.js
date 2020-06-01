@@ -1,6 +1,6 @@
 require('dotenv').config()
 const { env: { MONGODB_URL_TEST } } = process
-const { mongoose, models: { User } } = require('data')
+const { mongoose, models: { User } } = require('@skylab/data')
 const registerUser = require('./register-user')
 const { expect } = require('chai')
 

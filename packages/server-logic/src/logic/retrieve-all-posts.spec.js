@@ -1,6 +1,6 @@
 require('dotenv').config()
 const { env: { MONGODB_URL_TEST } } = process
-const { mongoose, models: { User, Post } } = require('data')
+const { mongoose, models: { User, Post } } = require('@skylab/data')
 const retrieveAllPosts = require('./retrieve-all-posts')
 const { expect } = require('chai')
 

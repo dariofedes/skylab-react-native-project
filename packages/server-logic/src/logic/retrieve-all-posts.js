@@ -1,4 +1,4 @@
-const { models: { Post } } = require('data')
+const { models: { Post } } = require('@skylab/data')
 const { sanitize } = require('../utils')
 
 module.exports = () => {

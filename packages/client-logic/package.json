@@ -9,12 +9,12 @@
   },
   "dependencies": {
     "@skylab/utils": "*",
+    "@skylab/services": "*",
     "axios": "^0.19.2",
     "graphql-request": "^2.0.0",
     "node-fetch": "^2.6.0",
     "react": "16.11.0",
-    "react-native": "0.62.2",
-    "utils": "*"
+    "react-native": "0.62.2"
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",

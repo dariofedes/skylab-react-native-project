@@ -1,11 +1,11 @@
 require('dotenv').config()
 const { env: { MONGODB_URL_TEST } } = process
-const { mongoose, models: { User, Post } } = require('data')
-const retrieveUsersPosts = require('./retrieve-users-posts')
+const { mongoose, models: { User, Post } } = require('@skylab/data')
+const retrievePost = require('./retrieve-post')
 const { expect } = require('chai')
 
-describe('retrieveUsersPosts', () => {
-    let userId, title, image, created
+describe('retrievePost', () => {
+    let postId, title, image, created
 
     before(async () => {
         await mongoose.connect(MONGODB_URL_TEST, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -22,9 +22,7 @@ describe('retrieveUsersPosts', () => {
                 password: `password-${Math.random()}`
             })
 
-            const { id } = await publisher.save()
-
-            userId = id
+            const { id: publisherId } = await publisher.save()
 
             // Create post
 
@@ -33,40 +31,43 @@ describe('retrieveUsersPosts', () => {
             created = `date-${Math.random()}`
 
             const post = new Post({
-                publisher: userId,
+                publisher: publisherId,
                 title,
                 image,
                 created
             })
 
-            await post.save()
+            const { id } = await post.save()
+
+            postId = id
         })
 
         it('should return the post', async () => {
-            const usersPosts = await retrieveUsersPosts(userId)
+            const post = await retrievePost(postId)
 
-            expect(usersPosts).to.be.an.instanceof(Array)
-            expect(usersPosts).to.have.lengthOf(1)
-            expect(usersPosts[0].title).to.equal(title)
-            expect(usersPosts[0].image).to.equal(image)
-            expect(usersPosts[0].created).to.equal(created)
+            expect(post).to.be.an.instanceof(Object)
+            expect(post.title).to.equal(title)
+            expect(post.image).to.equal(image)
+            expect(post.created).to.equal(created)
         })
 
         it('should not expose the database', async () => {
-            const usersPosts = await retrieveUsersPosts(userId)
+            const post = await retrievePost(postId)
 
-            expect(usersPosts[0].__v).not.to.exist
-            expect(usersPosts[0]._id).not.to.exist
-            expect(usersPosts[0]._doc).not.to.exist
+            expect(post.__v).not.to.exist
+            expect(post._id).not.to.exist
+            expect(post._doc).not.to.exist
         })
 
-        it('should return an empty array instead of fail on no posts found', async () => {
+        it('should fail on no post found ', async () => {
             await Post.deleteMany()
 
-            const usersPosts = await retrieveUsersPosts(userId)
-
-            expect(usersPosts).to.be.an.instanceof(Array)
-            expect(usersPosts).to.have.lengthOf(0)
+            try {
+                const post = await retrievePost(postId)
+            } catch(error) {
+                expect(error).to.be.an.instanceof(Error)
+                expect(error.message).to.equal(`post with id ${postId} does not exist`)
+            }
         })
      })
 
@@ -79,9 +80,7 @@ describe('retrieveUsersPosts', () => {
                 password: `password-${Math.random()}`
             })
 
-            const { id } = await publisher.save()
-
-            userId = id
+            const { id: publisherId } = await publisher.save()
 
             // Create post
 
@@ -90,23 +89,25 @@ describe('retrieveUsersPosts', () => {
             created = `date-${Math.random()}`
 
             const post = new Post({
-                publisher: userId,
+                publisher: publisherId,
                 title,
                 image,
                 created
             })
 
-            await post.save()
+            const { id } = await post.save()
+
+            postId = id
         })
 
-        it('should fail on non string user id', async () => {
-            userId = true
+        it('should fail on non string post id', async () => {
+            postId = true
 
             try {
-                await retrieveUsersPosts(userId)
+                await retrievePost(postId)
             } catch(error) {
                 expect(error).to.be.an.instanceof(Error)
-                expect(error.message).to.equal('publisher must be a string')
+                expect(error.message).to.equal('id must be a string')
             }
         })
      })
