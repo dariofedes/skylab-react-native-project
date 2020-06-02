@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import {
     View,
     Image,
     KeyboardAvoidingView,
+    AsyncStorage
 } from 'react-native'
 import registerUser from '@skylab/client-logic/src/users/register-user';
 
@@ -18,6 +19,17 @@ export default function Register(props) {
     const [email, setEmail] = useState('')
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
+
+    useEffect(() => {
+        getToken()
+    }, [])
+
+    const getToken = async() => {
+        const token = await AsyncStorage.getItem('token')
+
+        token && props.navigation.navigate('Home')
+    }
+
 
     const onSubmit = async () => {
         await registerUser(email, username, password)
