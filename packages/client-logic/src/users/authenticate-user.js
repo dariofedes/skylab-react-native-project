@@ -1,6 +1,6 @@
 const EMAIL_REGEX = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
-const context = require('@skylab/services/src/Context')
+const Context = require('@skylab/services/src/Context')
 const { request } = require('graphql-request')
 
 module.exports = function (email, password) {
@@ -29,4 +29,4 @@ module.exports = function (email, password) {
 
         return authenticateUser
     })()
-}.bind(context)
+}.bind(Context)

@@ -15,6 +15,7 @@ export const formatDate = (date, format = DEFAULT_FORMAT) => {
 
   return moment(date).format(format);
 };
+
 /**
  *
  * @param {Number} days  // days wanna add to the date

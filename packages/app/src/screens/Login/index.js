@@ -1,11 +1,13 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import {
     View,
     Image,
     KeyboardAvoidingView,
+    AsyncStorage
 } from 'react-native'
-import styles from './styles'
+import authenticateUser from '@skylab/client-logic/src/users/authenticate-user';
 
+import styles from './styles'
 import Input from '../../components/commons/input'
 import Button from '../../components/commons/button'
 import Text from '../../components/commons/text'
@@ -13,13 +15,35 @@ import Link from '../../components/formLink'
 
 const ICON_URL = 'https://cdn.pixabay.com/photo/2017/10/25/12/33/rocket-2887845_1280.png'
 
-export default function Login({ goToRegister, onSubmit }) {
+export default function Login(props) {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+
+    useEffect(() => {
+        const { params } = props.route
+
+        params && setEmail(params.email)
+    }, [])
+
+    const onSubmit = async () => {
+        const { token } = await authenticateUser(email, password)
+
+        await AsyncStorage.setItem('token', token)
+
+        props.navigation.navigate('Home', { email })
+    }
+
+    const goToRegister = () => {
+        const canGoBack = props.navigation.canGoBack()
+        
+        canGoBack && props.navigation.goBack()
+    }
     
+    const { backgroundColor } = props
+
     return (
         <KeyboardAvoidingView 
-            style={styles.container} 
+            style={[ styles.container, { backgroundColor } ]} 
             behavior="position"
         >
             <Image 
@@ -43,7 +67,7 @@ export default function Login({ goToRegister, onSubmit }) {
                     value={password}
                 />
                 <Button
-                    onPress={() => onSubmit(email, password)}
+                    onPress={onSubmit}
                     text='Submit'
                 />
             </View>

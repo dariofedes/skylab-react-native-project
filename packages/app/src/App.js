@@ -1,50 +1,38 @@
 import React, { useState } from 'react';
-import { SafeAreaView } from 'react-native';
+import { SafeAreaView, AsyncStorage } from 'react-native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
 import Register from './screens/Register'
 import Login from './screens/Login'
 import Home from './screens/Home'
-import registerUser from '@skylab/client-logic/src/users/register-user';
+
 import Context from '@skylab/services/src/Context';
 import { API_URL } from '../config'
 
-import { getAppBackgroundColor } from './utils/Colors'
-
 Context.API_URL = API_URL
+Context.storage = AsyncStorage
+
+const STACK = createStackNavigator()
 
 const App = () => {
-  const [view, setView] = useState('register')
-
-  function handleView(route) {
-    setView(route)
-  }
-
-  async function onRegister(email, username, password) {
-    // on submit: register and then go to login
-      await registerUser(email, username, password)
-
-      setView('login')
-    
-  }
-
-  function onLogin(email, password) {
-    // on submit: login and then go home
-    setView('home')
-  }
-  
-
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: getAppBackgroundColor(view) }}>
-      {view === 'register' && <Register
-        goToLogin={() => handleView('login')}
-        onSubmit={onRegister}
-      />}
-      {view === 'login' && <Login 
-        goToRegister={() => handleView('register')}
-        onSubmit={onLogin}
-      />}
-      {view === 'home' && <Home 
-        goBack={() => handleView('register')}
-      />}
+    <SafeAreaView style={{ flex: 1 }}>
+      <NavigationContainer>
+        <STACK.Navigator initialRouteName='Register'  >
+            <STACK.Screen name="Register">
+              {props => <Register {...props} backgroundColor='#ebbf47'/>}
+            </STACK.Screen>
+            <STACK.Screen name="Login">
+              {props => <Login {...props} backgroundColor='#ebbf47' />}
+            </STACK.Screen>
+            <STACK.Screen 
+              name="Home" 
+              options={{ headerShown: false, gestureEnabled: false }} 
+            >
+              {props => <Home {...props} />}
+            </STACK.Screen>
+        </STACK.Navigator>
+      </NavigationContainer>
     </SafeAreaView>
   );
 };
