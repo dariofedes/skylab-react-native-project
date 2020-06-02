@@ -13,7 +13,6 @@ Context.API_URL = API_URL
 
 const App = () => {
   const [view, setView] = useState('register')
-  const [error, setError] = useState('')
 
   function handleView(route) {
     setView(route)
@@ -35,7 +34,6 @@ const App = () => {
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: getAppBackgroundColor(view) }}>
-      {error ? <Text>{error}</Text> : null}
       {view === 'register' && <Register
         goToLogin={() => handleView('login')}
         onSubmit={onRegister}
