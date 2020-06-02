@@ -1,23 +1,38 @@
 import React, { useState } from 'react';
-import { SafeAreaView } from 'react-native';
+import { SafeAreaView, Text } from 'react-native';
 import Register from './screens/Register'
 import Login from './screens/Login'
 import Home from './screens/Home'
+import registerUser from '@skylab/client-logic/src/users/register-user';
+import Context from '@skylab/services/src/Context';
+import { API_URL } from '../config'
 
 import { getAppBackgroundColor } from './utils/Colors'
 
-// import registerUser from '@skylab/client-logic/src/users/register-user'
+Context.API_URL = API_URL
 
 const App = () => {
   const [view, setView] = useState('register')
+  const [error, setError] = useState('')
 
   function handleView(route) {
     setView(route)
   }
 
-  function onRegister(email, username, password) {
-    // on submit: register and then go home
-    setView('login')
+  async function onRegister(email, username, password) {
+    // on submit: register and then go to login
+
+    try {
+      await registerUser(email, username, password)
+
+      setView('login')
+    } catch(error) {
+      setError(error.message)
+
+      setTimeout(() => {
+        setError('')
+      }, 4000);
+    }
   }
 
   function onLogin(email, password) {
@@ -28,6 +43,7 @@ const App = () => {
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: getAppBackgroundColor(view) }}>
+      {error ? <Text>{error}</Text> : null}
       {view === 'register' && <Register
         goToLogin={() => handleView('login')}
         onSubmit={onRegister}
