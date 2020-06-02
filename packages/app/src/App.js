@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { SafeAreaView, Text } from 'react-native';
+import { SafeAreaView } from 'react-native';
 import Register from './screens/Register'
 import Login from './screens/Login'
 import Home from './screens/Home'
@@ -21,18 +21,10 @@ const App = () => {
 
   async function onRegister(email, username, password) {
     // on submit: register and then go to login
-
-    try {
       await registerUser(email, username, password)
 
       setView('login')
-    } catch(error) {
-      setError(error.message)
-
-      setTimeout(() => {
-        setError('')
-      }, 4000);
-    }
+    
   }
 
   function onLogin(email, password) {

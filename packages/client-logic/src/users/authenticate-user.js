@@ -21,11 +21,11 @@ module.exports = function (email, password) {
             }
         }`
 
-        const { authenticateUser, error } = await request(this.API_URL, mutation)
+        const { authenticateUser, error } = await request(this.default.API_URL, mutation)
 
         if(error) throw new Error(error.message)
 
-        await this.storage.setItem('token', authenticateUser.token.toString())
+        await this.default.storage.setItem('token', authenticateUser.token.toString())
 
         return authenticateUser
     })()

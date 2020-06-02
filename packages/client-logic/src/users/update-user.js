@@ -9,11 +9,11 @@ module.exports = function (email, username, avatar, password, newPassword) {
 
     
     return (async () => {
-        const token = await this.storage.getItem('token')
+        const token = await this.default.storage.getItem('token')
 
         // TODO Upload image and retrieve url
 
-        const client = new GraphQLClient(this.API_URL, {
+        const client = new GraphQLClient(this.default.API_URL, {
             headers: {
                 Authorization: `Bearer ${token}`
             }

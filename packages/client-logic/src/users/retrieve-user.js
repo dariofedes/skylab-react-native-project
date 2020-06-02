@@ -6,9 +6,9 @@ module.exports = function (id) {
 
     
     return (async () => {
-        const token = await this.storage.getItem('token')
+        const token = await this.default.storage.getItem('token')
 
-        const client = new GraphQLClient(this.API_URL, {
+        const client = new GraphQLClient(this.default.API_URL, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
