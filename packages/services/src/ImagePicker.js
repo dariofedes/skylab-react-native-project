@@ -2,9 +2,10 @@ import ImagePicker from 'react-native-image-picker';
 import { showToastMessage } from './Toast';
 
 // More info on all the options is below in the API Reference... just some common use cases shown here
-const customButtons = [{ name: 'fb', title: 'Choose Photo from Facebook' }];
+const customButtons = [{ name: 'fb', title: 'Choose Photo from Facebook' }, {name: 'ig', title: 'pick from instagram'}];
 const options = {
   title: 'Select Photo',
+  rotation: -90,
   customButtons,
   storageOptions: {
     skipBackup: true,
@@ -21,7 +22,13 @@ const showImagePicker = callback => {
         'There has been an error picking the image'
       );
     } else if (response.customButton) {
-      // if custom button exist, should return respons here
+      console.log(response)
+      if(response.customButton === 'fb') {
+      showToastMessage('this should lead to facebook');
+      } else if(response.customButton === 'ig') {
+      showToastMessage('this should lead to instagram');
+      }
+      
     } else {
       const source = { uri: response.uri };
 

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { SafeAreaView, AsyncStorage } from 'react-native';
+import { Root } from 'native-base'
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import Register from './screens/Register'
@@ -17,6 +18,7 @@ const STACK = createStackNavigator()
 const App = () => {
   return (
     <SafeAreaView style={{ flex: 1 }}>
+      <Root>
       <NavigationContainer>
         <STACK.Navigator initialRouteName='Register'  >
             <STACK.Screen name="Register">
@@ -33,6 +35,7 @@ const App = () => {
             </STACK.Screen>
         </STACK.Navigator>
       </NavigationContainer>
+      </Root>
     </SafeAreaView>
   );
 };

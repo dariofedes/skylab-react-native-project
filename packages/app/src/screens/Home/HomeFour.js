@@ -1,5 +1,7 @@
-import React from 'react'
-import { View, AsyncStorage } from 'react-native'
+import React, { useState } from 'react'
+import { View, AsyncStorage, Image } from 'react-native'
+import { Avatar } from 'react-native-elements'
+import { showImagePicker } from '@skylab/services/src/ImagePicker'
 import { CommonActions } from '@react-navigation/native';
 
 
@@ -7,15 +9,14 @@ import Text from '../../components/commons/text'
 import Button from '../../components/commons/button'
 
 export default function HomeFour(props) {
-    const logout = async () => {
-        await AsyncStorage.clear()
+    const [image, setImage] = useState()
 
-        /**
-         * We will explain this tomorrow
-         * 
-         * It jumps from the bottom again back to the stack navigator (Register screen)
-         * Reseting the navigation
-         */
+    function onPickedImage(pickedImage) {
+        setImage(pickedImage)
+    }
+
+    const logout = async () => {
+        await AsyncStorage.removeItem('token')
         props.navigation.dispatch(
             CommonActions.reset({
                 index: 0, 
@@ -23,9 +24,14 @@ export default function HomeFour(props) {
             })
         );
     }
+
     return (
         <View style={{ alignItems: 'center', justifyContent: 'center' }}>
             <Text style={{ fontSize: 50 }}>HomeFour</Text>
+            <Button text="Pick a photo" onPress={() => {
+                showImagePicker(onPickedImage)
+            }} />
+            {<Avatar source={image} rounded size="large" title="DF"   overlayContainerStyle={{backgroundColor: 'blue'}} />}
             <Button
                 onPress={logout}
                 text='Logout'
