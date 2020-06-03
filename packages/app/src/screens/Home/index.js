@@ -19,7 +19,7 @@ export default function Home(props) {
         >
             <TAB.Screen
                 options={{ 
-                    tabBarIcon: ({ color }) => <Icon name='home' color={color} size={20} />
+                    tabBarIcon: ({ color }) => <Icon name='map' color={color} size={20} />
                 }} 
                 name="Map"
             >
@@ -28,7 +28,7 @@ export default function Home(props) {
 
             <TAB.Screen
              options={{ 
-                tabBarBadge: 2,
+                // tabBarBadge: 2,
                 tabBarIcon: ({ color }) => <Icon name='list' color={color} size={20} />
             }}
              name="Lists"
@@ -40,10 +40,10 @@ export default function Home(props) {
              options={{ 
                 tabBarIcon: ({ focused, color }) => {
                     if (focused) {
-                        return <Icon name='bell' color={color} size={20} />
+                        return <Icon name='grid' color={color} size={20} />
                     }
 
-                    return <Icon name='bell-off' color={color} size={20} />
+                    return <Icon name='grid' color={color} size={20} />
                 }
             }}
              name="Posts"

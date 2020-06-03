@@ -6,7 +6,7 @@ import Text from '../../../components/commons/text'
 export default function Lists() {
     return (
         <View style={{ alignItems: 'center', justifyContent: 'center' }}>
-            <Text style={{ fontSize: 50 }}>Lists</Text>
+            <Text type='title' style={{ color: 'purple' }}>Lists</Text>
         </View>
     )
 }

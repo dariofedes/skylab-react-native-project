@@ -27,7 +27,7 @@ export default function Profile(props) {
 
     return (
         <View style={{ alignItems: 'center', justifyContent: 'center' }}>
-            <Text style={{ fontSize: 50 }}>Profile</Text>
+            <Text type='title' style={{ color: 'purple' }}>Profile</Text>
             <Button text="Pick a photo" onPress={() => {
                 showImagePicker(onPickedImage)
             }} />
