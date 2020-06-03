@@ -233,7 +233,11 @@ PODS:
     - React-cxxreact (= 0.62.2)
     - React-jsi (= 0.62.2)
   - React-jsinspector (0.62.2)
+  - react-native-geolocation (2.0.2):
+    - React
   - react-native-image-picker (2.3.1):
+    - React
+  - react-native-maps (0.27.1):
     - React
   - react-native-safe-area-context (3.0.2):
     - React
@@ -300,6 +304,8 @@ PODS:
     - React
   - RNGestureHandler (1.6.1):
     - React
+  - RNPermissions (2.1.5):
+    - React
   - RNReanimated (1.9.0):
     - React
   - RNScreens (2.8.0):
@@ -346,7 +352,9 @@ DEPENDENCIES:
   - React-jsi (from `../../../node_modules/react-native/ReactCommon/jsi`)
   - React-jsiexecutor (from `../../../node_modules/react-native/ReactCommon/jsiexecutor`)
   - React-jsinspector (from `../../../node_modules/react-native/ReactCommon/jsinspector`)
+  - "react-native-geolocation (from `../../../node_modules/@react-native-community/geolocation`)"
   - react-native-image-picker (from `../../../node_modules/react-native-image-picker`)
+  - react-native-maps (from `../../../node_modules/react-native-maps`)
   - react-native-safe-area-context (from `../../../node_modules/react-native-safe-area-context`)
   - React-RCTActionSheet (from `../../../node_modules/react-native/Libraries/ActionSheetIOS`)
   - React-RCTAnimation (from `../../../node_modules/react-native/Libraries/NativeAnimation`)
@@ -361,6 +369,7 @@ DEPENDENCIES:
   - ReactCommon/turbomodule/core (from `../../../node_modules/react-native/ReactCommon`)
   - "RNCMaskedView (from `../../../node_modules/@react-native-community/masked-view`)"
   - RNGestureHandler (from `../../../node_modules/react-native-gesture-handler`)
+  - RNPermissions (from `../../../node_modules/react-native-permissions`)
   - RNReanimated (from `../../../node_modules/react-native-reanimated`)
   - RNScreens (from `../../../node_modules/react-native-screens`)
   - RNVectorIcons (from `../../../node_modules/react-native-vector-icons`)
@@ -410,8 +419,12 @@ EXTERNAL SOURCES:
     :path: "../../../node_modules/react-native/ReactCommon/jsiexecutor"
   React-jsinspector:
     :path: "../../../node_modules/react-native/ReactCommon/jsinspector"
+  react-native-geolocation:
+    :path: "../../../node_modules/@react-native-community/geolocation"
   react-native-image-picker:
     :path: "../../../node_modules/react-native-image-picker"
+  react-native-maps:
+    :path: "../../../node_modules/react-native-maps"
   react-native-safe-area-context:
     :path: "../../../node_modules/react-native-safe-area-context"
   React-RCTActionSheet:
@@ -438,6 +451,8 @@ EXTERNAL SOURCES:
     :path: "../../../node_modules/@react-native-community/masked-view"
   RNGestureHandler:
     :path: "../../../node_modules/react-native-gesture-handler"
+  RNPermissions:
+    :path: "../../../node_modules/react-native-permissions"
   RNReanimated:
     :path: "../../../node_modules/react-native-reanimated"
   RNScreens:
@@ -473,7 +488,9 @@ SPEC CHECKSUMS:
   React-jsi: b6dc94a6a12ff98e8877287a0b7620d365201161
   React-jsiexecutor: 1540d1c01bb493ae3124ed83351b1b6a155db7da
   React-jsinspector: 512e560d0e985d0e8c479a54a4e5c147a9c83493
+  react-native-geolocation: c956aeb136625c23e0dce0467664af2c437888c9
   react-native-image-picker: 6a850c41f57f0848d918c2a77aedd7aa272ffa30
+  react-native-maps: f4b89da81626ad7f151a8bfcb79733295d31ce5c
   react-native-safe-area-context: b11a34881faac509cad5578726c98161ad4d275c
   React-RCTActionSheet: f41ea8a811aac770e0cc6e0ad6b270c644ea8b7c
   React-RCTAnimation: 49ab98b1c1ff4445148b72a3d61554138565bad0
@@ -487,12 +504,13 @@ SPEC CHECKSUMS:
   ReactCommon: ed4e11d27609d571e7eee8b65548efc191116eb3
   RNCMaskedView: 5a8ec07677aa885546a0d98da336457e2bea557f
   RNGestureHandler: 8f09cd560f8d533eb36da5a6c5a843af9f056b38
+  RNPermissions: ad71dd4f767ec254f2cd57592fbee02afee75467
   RNReanimated: b5ccb50650ba06f6e749c7c329a1bc3ae0c88b43
   RNScreens: 62211832af51e0aebcf6e8c36bcf7dd65592f244
   RNVectorIcons: 0bb4def82230be1333ddaeee9fcba45f0b288ed4
   Yoga: 3ebccbdd559724312790e7742142d062476b698e
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
-PODFILE CHECKSUM: a495c4a14c01f0cd61cb298111efa49d6a2dfd53
+PODFILE CHECKSUM: 5127eb32f8cf96c2fe1f24365f81419d8b5fc98d
 
-COCOAPODS: 1.9.0
+COCOAPODS: 1.9.1

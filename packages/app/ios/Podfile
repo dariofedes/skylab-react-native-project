@@ -77,6 +77,13 @@ target 'app' do
   pod 'glog', :podspec => '../../../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../../../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
+
+  # permissions_path = '../../../node_modules/react-native-permissions/ios'
+
+  pod 'RNPermissions', :path => '../../../node_modules/react-native-permissions'
+  # pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways.podspec"
+  # pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse.podspec"
+
   target 'appTests' do
     inherit! :complete
     # Pods for testing
@@ -92,6 +99,21 @@ target 'app' do
   post_install do |installer|
     flipper_post_install(installer)
   end
+
+  # use_frameworks!
+
+  # # Convert all permission pods into static libraries
+  # pre_install do |installer|
+  #   installer.pod_targets.each do |pod|
+  #     if pod.name.eql?('RNPermissions') || pod.name.start_with?('Permission-')
+  #       def pod.build_type;
+  #         # Uncomment one line depending on your CocoaPods version
+  #         # Pod::BuildType.static_library # >= 1.9
+  #         # Pod::Target::BuildType.static_library # < 1.9
+  #       end
+  #     end
+  #   end
+  # end
 end
 
 target 'app-tvOS' do

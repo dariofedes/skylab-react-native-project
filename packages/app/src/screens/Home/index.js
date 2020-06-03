@@ -2,10 +2,10 @@ import React from 'react'
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import Icon from 'react-native-vector-icons/Feather'
 
-import HomeOne from './HomeOne'
-import HomeTwo from './HomeTwo'
-import HomeThree from './HomeThree'
-import HomeFour from './HomeFour'
+import Map from './Map'
+import Lists from './Lists'
+import Posts from './Posts'
+import Profile from './Profile'
 
 const TAB = createMaterialBottomTabNavigator();
 
@@ -21,9 +21,9 @@ export default function Home(props) {
                 options={{ 
                     tabBarIcon: ({ color }) => <Icon name='home' color={color} size={20} />
                 }} 
-                name="HomeOne"
+                name="Map"
             >
-              {props => <HomeOne  />}
+              {props => <Map  />}
             </TAB.Screen>
 
             <TAB.Screen
@@ -31,9 +31,9 @@ export default function Home(props) {
                 tabBarBadge: 2,
                 tabBarIcon: ({ color }) => <Icon name='list' color={color} size={20} />
             }}
-             name="HomeTwo"
+             name="Lists"
             >
-              {props => <HomeTwo  />}
+              {props => <Lists  />}
             </TAB.Screen>
 
             <TAB.Screen
@@ -46,18 +46,18 @@ export default function Home(props) {
                     return <Icon name='bell-off' color={color} size={20} />
                 }
             }}
-             name="HomeThree"
+             name="Posts"
             >
-              {props => <HomeThree  />}
+              {props => <Posts  />}
             </TAB.Screen>
 
             <TAB.Screen
              options={{ 
                 tabBarIcon: ({ color }) => <Icon name='user' color={color} size={20} />
             }}
-             name="HomeFour"
+             name="Profile"
             >
-              {props => <HomeFour {...props} />}
+              {props => <Profile {...props} />}
             </TAB.Screen>
         </TAB.Navigator>
     )

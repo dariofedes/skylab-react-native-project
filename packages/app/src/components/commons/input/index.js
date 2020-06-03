@@ -1,8 +1,8 @@
 import React from 'react'
 import { TextInput } from 'react-native'
-import styles from './styles'
 
-import {getKeyboardType} from '../../../utils/Device'
+import { getKeyboardType } from '../../../utils/Device'
+import styles from './styles'
 
 const Input = ({ placeholder, onChangeText, value, type = 'default' }) => {
     const isSecure = type === 'password'
