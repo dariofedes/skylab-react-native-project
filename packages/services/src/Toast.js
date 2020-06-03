@@ -1,4 +1,4 @@
-import Toast from 'react-native-root-toast';
+import { Toast } from 'native-base';
 import { assertParamExist } from '@skylab/utils/src/Asserts';
 
 /**
@@ -10,19 +10,15 @@ import { assertParamExist } from '@skylab/utils/src/Asserts';
 const showToastMessage = message => {
   assertParamExist(message);
 
-  const { LONG } = Toast.durations;
-  const { BOTTOM } = Toast.positions;
+  const duration = 3000
 
-  Toast.show(message, {
-    duration: LONG,
-    position: BOTTOM,
-    shadow: true,
-    animation: true,
-    hideOnPress: true,
-    delay: 0
+  Toast.show({
+    text: message,
+    duration,
+    position: "bottom"
   });
 };
 
-export default {
+export {
   showToastMessage
 };
