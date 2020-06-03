@@ -8,10 +8,10 @@ import {
 import authenticateUser from '@skylab/client-logic/src/users/authenticate-user';
 
 import styles from './styles'
-import Input from '../../components/commons/input'
-import Button from '../../components/commons/button'
-import Text from '../../components/commons/text'
-import Link from '../../components/formLink'
+import Input from '../../components/commons/Input'
+import Button from '../../components/commons/Button'
+import Text from '../../components/commons/Text'
+import Link from '../../components/FormLink'
 
 const ICON_URL = 'https://cdn.pixabay.com/photo/2017/10/25/12/33/rocket-2887845_1280.png'
 

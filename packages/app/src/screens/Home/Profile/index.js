@@ -4,8 +4,8 @@ import { Avatar } from 'react-native-elements'
 import { showImagePicker } from '@skylab/services/src/ImagePicker'
 import { CommonActions } from '@react-navigation/native';
 
-import Text from '../../../components/commons/text'
-import Button from '../../../components/commons/button'
+import Text from '../../../components/commons/Text'
+import Button from '../../../components/commons/Button'
 
 export default function Profile(props) {
     const [image, setImage] = useState()

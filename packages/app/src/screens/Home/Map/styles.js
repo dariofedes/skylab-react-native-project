@@ -5,6 +5,15 @@ const styles = StyleSheet.create({
     map: {
         width: getWidht(),
         height: getHeight()
+    },
+    listContainer: {
+        paddingBottom: 20,
+        marginBottom: 10,
+        width: getWidht(),
+        height: getHeight() / 5,
+        position: 'absolute',
+        bottom: 0,
+        left: 0
     }
 })
 

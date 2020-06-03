@@ -5,8 +5,12 @@ import {executeRequest} from '.';
 /**
  * @returns all launches list
  */
-export const getRocketsAllLaunches = () => {
-  return executeRequest('launches');
+export const getRocketsAllLaunches = async () => {
+  const result = await executeRequest('launches');
+
+  if (result.status === 200) return result.data
+  else return []
+  
 };
 
 /**
@@ -15,13 +19,16 @@ export const getRocketsAllLaunches = () => {
  *
  * @returns the launches on one specific date
  */
-export const getRocketsLaunchesByDate = date => {
+export const getRocketsLaunchesByDate = async date => {
   assertParamExist(date);
 
   const nextDay = sumDaysToDate(1, date);
   const formattedDate = formatDate(nextDay, 'YYYY-MM-DD');
 
-  return executeRequest(`launches?start=${date}&end=${formattedDate}`);
+  const result = await executeRequest(`launches?start=${date}&end=${formattedDate}`);
+
+  if (result.status === 200) return result.data
+  else return []
 };
 
 /**
@@ -31,11 +38,14 @@ export const getRocketsLaunchesByDate = date => {
  *
  * @returns the launches between two specific dates
  */
-export const getRocketsLaunchesByDateRange = (startDate, endDate) => {
+export const getRocketsLaunchesByDateRange = async (startDate, endDate) => {
   assertParamExist(startDate);
   assertParamExist(endDate);
 
-  return executeRequest(`launches?start=${startDate}&end=${endDate}`);
+  const result = await executeRequest(`launches?start=${startDate}&end=${endDate}`);
+
+  if (result.status === 200) return result.data
+  else return []
 };
 
 /**
@@ -44,10 +54,14 @@ export const getRocketsLaunchesByDateRange = (startDate, endDate) => {
  *
  * @returns a specific launch info
  */
-export const getRocketLaunchById = id => {
+export const getRocketLaunchById = async id => {
   assertParamExist(id);
 
-  return executeRequest(`launches/${id}`);
+  const result = await executeRequest(`launches/${id}`);
+
+  if (result.status === 200) return result.data
+  else return {}
+  
 };
 
 export default {

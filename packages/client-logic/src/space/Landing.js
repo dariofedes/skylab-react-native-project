@@ -4,8 +4,11 @@ import {executeRequest} from '.';
 /**
  * @returns all landings list
  */
-export const getRocketsAllLandings = () => {
-  return executeRequest('landpads');
+export const getRocketsAllLandings = async () => {
+  const result = await executeRequest('landpads');
+
+  if (result.status === 200) return result.data
+  else return []
 };
 
 /**
@@ -14,10 +17,13 @@ export const getRocketsAllLandings = () => {
  *
  * @returns a specific landing info
  */
-export const getRocketLandingById = id => {
+export const getRocketLandingById = async id => {
   assertParamExist(id);
 
-  return executeRequest(`landpads/${id}`);
+  const result = await executeRequest(`landpads/${id}`);;
+
+  if (result.status === 200) return result.data
+  else return null
 };
 
 export default {
