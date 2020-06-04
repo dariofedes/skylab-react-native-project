@@ -49,7 +49,7 @@ export default function Map() {
         const res = await requestLocationPermissions()
 
         if (res) {
-            // requestLocation(({ coords }) => receiveCoords(coords))
+            requestLocation(({ coords }) => receiveCoords(coords))
             // startTrackingLocation(({ coords }) => receiveCoords(coords))
         }
     }

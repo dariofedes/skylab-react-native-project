@@ -1,3 +1,4 @@
+import React from 'react'
 import { View } from 'react-native'
 
 import Text from '../commons/Text'
@@ -15,7 +16,9 @@ const getColorFromStatus = status => {
     }
 }
  
-export const ListItem = (item) => {
+export const ListItem = ({ item }) => {
+    if (!item) return null
+
     return <View style={styles.listItem}>
         <Text type='subtitle'>{item.full_name}</Text>
         <BadgeLabel icon='map-pin' text={item.location.name} iconColor='purple'/>
