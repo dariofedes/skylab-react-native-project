@@ -16,9 +16,8 @@ module.exports = function (id) {
 
         const query = `
         {
-            retrieveUser(id: "${id}") {
-                    username
-                }
+            user(id: "${id}") {
+                username
             }
         }`
 
