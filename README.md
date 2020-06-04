@@ -7,6 +7,15 @@ This is a project to work with a React Native App.
 Futhermore, as it is created with different workspaces, we could always change the Platform, or Api and Theme without creating the App from its beginings.
 
 
+## run app
+
+Choose between ios or android, according to your environvment (You can set up it [here](https://reactnative.dev/docs/environment-setup))
+
+Inside the project root: 
+
+```$ yarn workspace @skylab/app [ios|android]```
+
+
 ### run tests
 
 will run all the packages tests: 
