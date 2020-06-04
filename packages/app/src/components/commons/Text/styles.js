@@ -8,6 +8,7 @@ let styles = StyleSheet.create({
     },
     title: {},
     subtitle: {},
+    link: {}
 })
 
 styles.title = {
@@ -23,6 +24,14 @@ styles.subtitle = {
     margin: 10,
     fontSize: 24,
     fontWeight: '500'
+}
+
+styles.link = {
+    ...styles.default,
+    margin: 10,
+    fontWeight: '400',
+    // color: '#4081e3',
+    // textDecorationLine: 'underline'
 }
 
 export default styles

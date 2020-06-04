@@ -4,7 +4,7 @@ import Icon from 'react-native-vector-icons/Feather'
 
 import Map from './Map'
 import Lists from './Lists'
-import Posts from './Posts'
+import Info from './Info'
 import Profile from './Profile'
 
 const TAB = createMaterialBottomTabNavigator();
@@ -40,15 +40,15 @@ export default function Home(props) {
              options={{ 
                 tabBarIcon: ({ focused, color }) => {
                     if (focused) {
-                        return <Icon name='grid' color={color} size={20} />
+                        return <Icon name='info' color={color} size={20} />
                     }
 
-                    return <Icon name='grid' color={color} size={20} />
+                    return <Icon name='info' color={color} size={20} />
                 }
             }}
-             name="Posts"
+             name="Info"
             >
-              {props => <Posts  />}
+              {props => <Info  />}
             </TAB.Screen>
 
             <TAB.Screen
