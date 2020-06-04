@@ -18,11 +18,8 @@ const showImagePicker = callback => {
     if (response.didCancel) {
       showToastMessage('You have canceled this action');
     } else if (response.error) {
-      showToastMessage(
-        'There has been an error picking the image'
-      );
+      showToastMessage(response.error);
     } else if (response.customButton) {
-      console.log(response)
       if(response.customButton === 'fb') {
       showToastMessage('this should lead to facebook');
       } else if(response.customButton === 'ig') {

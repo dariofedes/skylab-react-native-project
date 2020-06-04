@@ -1,3 +1,5 @@
+import { Dimensions } from "react-native";
+
 export const getKeyboardType = type => {
     switch(type) {
         case 'phone':
@@ -9,7 +11,18 @@ export const getKeyboardType = type => {
     }
 }
 
+export const getWidht = () => {
+    return Dimensions.get('screen').width
+}
+
+
+export const getHeight = () => {
+    return Dimensions.get('screen').height
+}
+
 
 export default {
-    getKeyboardType
+    getKeyboardType,
+    getWidht,
+    getHeight
 }

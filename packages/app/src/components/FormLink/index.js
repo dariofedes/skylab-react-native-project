@@ -1,7 +1,8 @@
 import React from 'react'
 import { View } from 'react-native'
+
+import Text from '../commons/Text'
 import styles from './styles'
-import Text from '../commons/text'
 
 const Link = ({ onPress,  type = 'login' }) => {
     if (type === 'login') {
