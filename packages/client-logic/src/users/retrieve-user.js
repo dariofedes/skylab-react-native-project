@@ -16,16 +16,15 @@ module.exports = function (id) {
 
         const query = `
         {
-            retrieveUser(id: "${id}") {
-                    username
-                }
+            user(id: "${id}") {
+                username
             }
         }`
 
-        const { retrieveUser, error } = await client.request(query)
+        const { user, error } = await client.request(query)
 
         if(error) throw new Error(error.message)
 
-        return retrieveUser
+        return user
     })()
 }.bind(context)
