@@ -21,10 +21,10 @@ module.exports = function (id) {
             }
         }`
 
-        const { retrieveUser, error } = await client.request(query)
+        const { user, error } = await client.request(query)
 
         if(error) throw new Error(error.message)
 
-        return retrieveUser
+        return user
     })()
 }.bind(context)
