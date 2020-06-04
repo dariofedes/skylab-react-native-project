@@ -7,7 +7,6 @@ const styles = StyleSheet.create({
         height: getHeight()
     },
     listContainer: {
-        paddingBottom: 20,
         marginBottom: 10,
         width: getWidht(),
         height: getHeight() / 5,
