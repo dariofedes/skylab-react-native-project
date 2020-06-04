@@ -11,7 +11,7 @@ export const getKeyboardType = type => {
     }
 }
 
-export const getWidht = () => {
+export const getWidth = () => {
     return Dimensions.get('screen').width
 }
 
@@ -23,6 +23,6 @@ export const getHeight = () => {
 
 export default {
     getKeyboardType,
-    getWidht,
+    getWidth,
     getHeight
 }

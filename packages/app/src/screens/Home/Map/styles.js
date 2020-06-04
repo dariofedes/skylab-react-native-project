@@ -1,14 +1,13 @@
 import { StyleSheet } from "react-native";
-import { getWidht, getHeight } from "../../../utils/Device";
+import { getWidth, getHeight } from "../../../utils/Device";
 
 const styles = StyleSheet.create({
     map: {
-        width: getWidht(),
-        height: getHeight()
+        flex: 1,
     },
     listContainer: {
         marginBottom: 10,
-        width: getWidht(),
+        width: getWidth(),
         height: getHeight() / 5,
         position: 'absolute',
         bottom: 0,

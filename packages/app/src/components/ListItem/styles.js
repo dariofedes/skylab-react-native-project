@@ -1,9 +1,9 @@
 import { StyleSheet } from "react-native";
-import { getWidht, getHeight } from "../../utils/Device";
+import { getWidth, getHeight } from "../../utils/Device";
 
 const styles = StyleSheet.create({
     listItem: {
-        width: getWidht() / 2,
+        width: getWidth() / 2,
         marginHorizontal: 10,
         height: getHeight() / 5,
         borderRadius: 30,

@@ -1,5 +1,5 @@
 import React from 'react'
-import { View } from 'react-native'
+import { View, TouchableOpacity } from 'react-native'
 
 import Text from '../commons/Text'
 import BadgeLabel from '../commons/BadgeLabel'
@@ -16,14 +16,14 @@ const getColorFromStatus = status => {
     }
 }
  
-export const ListItem = ({ item }) => {
+export const ListItem = ({ item, onPress }) => {
     if (!item) return null
 
-    return <View style={styles.listItem}>
+    return <TouchableOpacity style={styles.listItem} onPress={onPress}>
         <Text type='subtitle'>{item.full_name}</Text>
         <BadgeLabel icon='map-pin' text={item.location.name} iconColor='purple'/>
-        <BadgeLabel icon='map-pin' text={item.status} iconColor={getColorFromStatus(item.statue)}/>
-    </View>
+        <BadgeLabel icon='check' text={item.status} iconColor={getColorFromStatus(item.statue)}/>
+    </TouchableOpacity>
 }
 
 export default ListItem
