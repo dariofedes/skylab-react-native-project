@@ -16,6 +16,7 @@ Context.storage = AsyncStorage
 const STACK = createStackNavigator()
 
 const App = () => {
+  console.disableYellowBox=true
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <Root>
