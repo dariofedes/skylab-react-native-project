@@ -3,6 +3,7 @@ import { SafeAreaView, AsyncStorage } from 'react-native';
 import { Root } from 'native-base'
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
+// import { Provider } from './components/ContextProvider'
 import Register from './screens/Register'
 import Login from './screens/Login'
 import Home from './screens/Home'
@@ -17,7 +18,24 @@ const STACK = createStackNavigator()
 
 const App = () => {
   console.disableYellowBox=true
-  return (
+
+  // const [language, setLanguage] = useState('')
+
+  // useEffect(() => {
+  //   (async () => {
+  //     let _language = await AsyncStorage.getItem('language')
+
+  //     if(!_language) {
+  //       _language = 'cat'
+  //       await AsyncStorage.setItem('language', _language)
+  //     }
+
+  //     setLanguage(_language)
+  //   })()
+  // }, [])
+ 
+  return /* language ? */ (
+    // <Provider language={language}>
     <SafeAreaView style={{ flex: 1 }}>
       <Root>
       <NavigationContainer>
@@ -38,7 +56,8 @@ const App = () => {
       </NavigationContainer>
       </Root>
     </SafeAreaView>
-  );
+    // </Provider>
+  ) /* : null */;
 };
 
 

@@ -1,18 +1,25 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { View, AsyncStorage } from 'react-native'
 import { Avatar } from 'react-native-elements'
 import { showImagePicker } from '@skylab/services/src/ImagePicker'
 import { CommonActions } from '@react-navigation/native';
-
+// import { Context } from '../../../components/ContextProvider'
 import Text from '../../../components/commons/Text'
 import Button from '../../../components/commons/Button'
 
 export default function Profile(props) {
+    // const [state, setState] = useContext(Context)
     const [image, setImage] = useState()
 
     function onPickedImage(pickedImage) {
         setImage(pickedImage)
     }
+
+    // async function handleOnLanguageSelection(language) {
+    //     setState({ language })
+
+    //     await AsyncStorage.setItem('language', language)
+    // }
 
     const logout = async () => {
         await AsyncStorage.removeItem('token')
@@ -42,6 +49,10 @@ export default function Profile(props) {
                 onPress={logout}
                 text='Logout'
             />
+            {/* <Button text="English" onPress={() => handleOnLanguageSelection('en')}></Button>
+            <Button text="Castellano" onPress={() => handleOnLanguageSelection('es')}></Button>
+            <Button text="Euskara" onPress={() => handleOnLanguageSelection('eus')}></Button>
+            <Button text="Catalá" onPress={() => handleOnLanguageSelection('cat')}></Button> */}
         </View>
     )
 }
