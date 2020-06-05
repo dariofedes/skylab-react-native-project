@@ -33,8 +33,8 @@ styles.link = {
     ...styles.default,
     margin: 10,
     fontWeight: '400',
-    // color: '#4081e3',
-    // textDecorationLine: 'underline'
+    color: '#4081e3',
+    textDecorationLine: 'underline'
 }
 
 export default styles

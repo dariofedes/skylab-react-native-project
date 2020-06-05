@@ -24,7 +24,7 @@ export default function Home(props) {
             }}
              name="Lists"
             >
-              {props => <Lists  />}
+              {props => <Lists {...props} />}
             </TAB.Screen>
             <TAB.Screen
                 options={{ 
@@ -38,16 +38,28 @@ export default function Home(props) {
             
 
             <TAB.Screen
-             options={{ 
-                tabBarIcon: ({ focused, color }) => {
-                    if (focused) {
+                options={{ 
+                    tabBarIcon: ({ focused, color }) => {
+                        if (focused) {
+                            return <Icon name='info' color={color} size={20} />
+                        }
+
                         return <Icon name='info' color={color} size={20} />
                     }
+                }}
+                name="Info"
+                // listeners={({ navigation, route }) => {
+                //     console.log(navigation, route)
 
-                    return <Icon name='info' color={color} size={20} />
-                }
-            }}
-             name="Info"
+                //     return {
+                //         tabPress: e => {
+                //             console.log('tabPress => ', e)
+                //             // Prevent default action
+                //             e.preventDefault();
+
+                //         }
+                //     }
+                // }}
             >
               {props => <Info  />}
             </TAB.Screen>

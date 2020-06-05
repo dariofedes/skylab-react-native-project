@@ -1,5 +1,5 @@
-import {assertParamExist} from '@skylab/utils/src/Asserts';
-import {executeRequest} from '.';
+import { assertParamExist } from '@skylab/utils/src/Asserts';
+import { executeRequest } from '.';
 
 /**
  * @returns all landings list
@@ -7,7 +7,7 @@ import {executeRequest} from '.';
 export const getRocketsAllLandings = async () => {
   const result = await executeRequest('landpads');
 
-  if (result.status === 200) return result.data
+  if (result && result.status === 200) return result.data
   else return []
 };
 

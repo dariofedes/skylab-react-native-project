@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { View } from 'react-native'
+import React, { useState, useEffect } from 'react'
+import { View, Alert } from 'react-native'
 import { Agenda } from 'react-native-calendars'
 import DateTimePicker from '@react-native-community/datetimepicker';
 
@@ -8,14 +8,46 @@ import Text from '../../../components/commons/Text'
 import Button from '../../../components/commons/Button'
 
 
-export default function Lists() {
+export default function Lists({ navigation, route }) {
     const [date, setDate] = useState(0)
 
     const language = 'en'
 
     const [ showPicker, setShowPicker ] = useState(false)
 
+    useEffect(() => {
+        const unsubscribe = navigation.addListener('focus', (e) => {
+            // cuando se entra en la pantalla
+             console.log('hello! i am focused!', e)
+        });
+
+        const unsubscribe2 = navigation.addListener('blur', (e) => {
+            // cuando se va de la pantalla
+            console.log('hello! i am blurred!', e)
+        });
+
+        console.log('navigation => ', navigation, route)
+
+        // const unsubscribePress = navigation.addListener('tabPress', e => {
+        //     // Prevent default action
+        //     e.preventDefault();
+
+        //     Alert.alert('Hello!', 'Are you sure?', [
+        //         {
+        //           text: "Cancel",
+        //           onPress: () => console.log("Cancel Pressed"),
+        //           style: "cancel"
+        //         },
+        //         { text: "Yes, i'm sure!", onPress: () => navigation.navigate('Lists') }
+        //     ])
+        //   });
     
+        return () => {
+            unsubscribe()
+            unsubscribe2()
+            // unsubscribePress()
+        }
+      }, [navigation]);
 
     return (
         <View style={{ alignItems: 'center', justifyContent: 'center', flex: 1 }}>
