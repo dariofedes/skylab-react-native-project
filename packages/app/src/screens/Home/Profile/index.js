@@ -61,7 +61,7 @@ export default function Profile(props) {
             <Button text="English" onPress={() => handleOnLanguageSelection('en')}></Button>
             <Button text="Castellano" onPress={() => handleOnLanguageSelection('es')}></Button>
             <Button text="Euskera" onPress={() => handleOnLanguageSelection('eus')}></Button>
-            <Button text="Catalá" onPress={() => handleOnLanguageSelection('cat')}></Button>
+            <Button text="Català" onPress={() => handleOnLanguageSelection('cat')}></Button>
         </View>
     )
 }
