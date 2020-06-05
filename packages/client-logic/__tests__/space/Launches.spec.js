@@ -4,12 +4,11 @@ import {
   getRocketsLaunchesByDate,
   getRocketsLaunchesByDateRange
 } from '@skylab/client-logic/src/space/Launches';
-import { executeRequest } from '@skylab/client-logic/src/space';
+import ApiLogic from '@skylab/client-logic/src/space';
 import { assertParamExist } from '@skylab/utils/src/Asserts';
 
-jest.mock('@skylab/client-logic/src/space', () => ({
-  executeRequest: jest.fn()
-}));
+jest.mock('@skylab/client-logic/src/space');
+
 jest.mock('@skylab/utils/src/Asserts', () => ({
   assertParamExist: jest.fn()
 }));
@@ -20,14 +19,23 @@ jest.mock('@skylab/utils/src/Date', () => ({
 
 describe('Launches Requests', () => {
   beforeEach(() => {
-    executeRequest.mockClear();
+    ApiLogic.executeRequest.mockClear();
   });
 
   describe('Get all launches', () => {
-    it('Should call request get all launches correctly', () => {
-      getRocketsAllLaunches();
 
-      expect(executeRequest).toHaveBeenCalledWith('launches');
+
+    it('Should call request get all launches correctly', async () => {
+      jest.spyOn(ApiLogic, 'executeRequest').mockImplementation(() => ({
+        status: 200,
+        data: [{ id: 'id-1' }]
+      }))
+
+      const res = await getRocketsAllLaunches();
+
+      expect(ApiLogic.executeRequest).toHaveBeenCalledWith('launches');
+
+      expect(res).toStrictEqual([{ id: 'id-1' }])
     });
   });
 
@@ -35,7 +43,7 @@ describe('Launches Requests', () => {
     it('Should call request get launches by date correctly', () => {
       getRocketsLaunchesByDate('2020-10-01');
 
-      expect(executeRequest).toHaveBeenCalledWith(
+      expect(ApiLogic.executeRequest).toHaveBeenCalledWith(
         'launches?start=2020-10-01&end=2020-10-03'
       );
     });
@@ -51,7 +59,7 @@ describe('Launches Requests', () => {
     it('Should call request get launches by date range correctly', () => {
       getRocketsLaunchesByDateRange('2020-10-01', '2020-10-03');
 
-      expect(executeRequest).toHaveBeenCalledWith(
+      expect(ApiLogic.executeRequest).toHaveBeenCalledWith(
         'launches?start=2020-10-01&end=2020-10-03'
       );
     });
@@ -74,14 +82,14 @@ describe('Launches Requests', () => {
       getRocketLaunchById('123');
 
       expect(assertParamExist).not.toThrow();
-      expect(executeRequest).toHaveBeenCalledWith('launches/123');
+      expect(ApiLogic.executeRequest).toHaveBeenCalledWith('launches/123');
     });
 
     it('Should throw error if no id passed', () => {
       getRocketLaunchById();
 
       expect(assertParamExist).toHaveBeenCalled();
-      expect(executeRequest).not.toHaveBeenCalledWith('launches/123');
+      expect(ApiLogic.executeRequest).not.toHaveBeenCalledWith('launches/123');
     });
   });
 });
