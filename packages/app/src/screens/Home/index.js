@@ -18,15 +18,6 @@ export default function Home(props) {
             barStyle={{ backgroundColor: '#fff' }}
         >
             <TAB.Screen
-                options={{ 
-                    tabBarIcon: ({ color }) => <Icon name='map' color={color} size={20} />
-                }} 
-                name="Map"
-            >
-              {props => <Map  />}
-            </TAB.Screen>
-
-            <TAB.Screen
              options={{ 
                 // tabBarBadge: 2,
                 tabBarIcon: ({ color }) => <Icon name='list' color={color} size={20} />
@@ -35,6 +26,16 @@ export default function Home(props) {
             >
               {props => <Lists  />}
             </TAB.Screen>
+            <TAB.Screen
+                options={{ 
+                    tabBarIcon: ({ color }) => <Icon name='map' color={color} size={20} />
+                }} 
+                name="Map"
+            >
+              {props => <Map  />}
+            </TAB.Screen>
+
+            
 
             <TAB.Screen
              options={{ 
