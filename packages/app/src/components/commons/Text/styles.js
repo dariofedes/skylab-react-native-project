@@ -1,7 +1,9 @@
 import { StyleSheet } from "react-native";
+import Fonts from './fonts'
 
 let styles = StyleSheet.create({
     default: {
+        fontFamily: 'RobotoMono-Medium',
         fontWeight: '300',
         fontSize: 18,
         color: '#333',
@@ -13,10 +15,11 @@ let styles = StyleSheet.create({
 
 styles.title = {
     ...styles.default,
+    fontFamily: Fonts.bold,
     margin: 30,
     alignSelf: 'center',
     fontSize: 30,
-    fontWeight: '700'
+    // fontWeight: '700'
 }
 
 styles.subtitle = {

@@ -1,16 +1,16 @@
 import React, { useEffect, useState, useContext } from 'react'
 import { View, AsyncStorage } from 'react-native'
 import Icon from 'react-native-vector-icons/Feather'
-// import { Context } from '../../../components/ContextProvider'
+import { Context } from '../../../components/ContextProvider'
 import Text from '../../../components/commons/Text'
 import Dictionary from './dictionary'
 
 export default function Info() {
-    // const [ state, setState ] = useContext(Context)
+    const [ state, setState ] = useContext(Context)
 
-    // const { language } = state
+    const { language } = state
 
-    const language = 'en'
+
 
     return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>

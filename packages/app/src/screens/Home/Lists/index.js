@@ -3,7 +3,7 @@ import { View } from 'react-native'
 import { Agenda } from 'react-native-calendars'
 import DateTimePicker from '@react-native-community/datetimepicker';
 
-
+import Dictionary from './dictionaty'
 import Text from '../../../components/commons/Text'
 import Button from '../../../components/commons/Button'
 
@@ -11,6 +11,7 @@ import Button from '../../../components/commons/Button'
 export default function Lists() {
     const [date, setDate] = useState(0)
 
+    const language = 'en'
 
     const [ showPicker, setShowPicker ] = useState(false)
 
@@ -18,7 +19,7 @@ export default function Lists() {
 
     return (
         <View style={{ alignItems: 'center', justifyContent: 'center', flex: 1 }}>
-            <Text type='title' style={{ color: 'purple' }}>Lists</Text>
+            <Text type='title' style={{ color: 'purple' }}>{Dictionary[language].title}</Text>
 
             {/* <Agenda style={{ width: '100%' }}
             items={{
@@ -29,7 +30,7 @@ export default function Lists() {
             renderItem={(item) => <Text>{item.name}</Text>}
             /> */}
 
-            <Button text="Show picker" onPress={() => setShowPicker(true)} />
+            <Button text={Dictionary[language].button} onPress={() => setShowPicker(true)} />
             {showPicker && <DateTimePicker
             testID="dateTimePicker"
             value={new Date('2020-06-04')}
