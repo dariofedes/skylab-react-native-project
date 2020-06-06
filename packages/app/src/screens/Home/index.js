@@ -5,6 +5,7 @@ import Icon from 'react-native-vector-icons/Feather'
 import Map from './Map'
 import Lists from './Lists'
 import Info from './Info'
+import Chat from './Chat'
 import Profile from './Profile'
 
 const TAB = createMaterialBottomTabNavigator();
@@ -62,6 +63,15 @@ export default function Home(props) {
                 // }}
             >
               {props => <Info  />}
+            </TAB.Screen>
+
+            <TAB.Screen
+             options={{ 
+                tabBarIcon: ({ color }) => <Icon name='message-circle' color={color} size={20} />
+            }}
+             name="Chat"
+            >
+              {props => <Chat {...props} />}
             </TAB.Screen>
 
             <TAB.Screen

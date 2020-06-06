@@ -49,7 +49,7 @@ export default function Info() {
     }
 
     return (
-        <ScrollView style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <ScrollView contentContainerStyle={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
             <Text type='title' style={{ color: 'purple' }}>{Dictionary[language].title}</Text>
 
             <Text
