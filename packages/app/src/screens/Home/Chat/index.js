@@ -18,7 +18,6 @@ export default function Chat(props) {
         )
     }
 
-
     return (
         <GiftedChat
             messages={messages}
@@ -28,9 +27,12 @@ export default function Chat(props) {
                 name: 'Maider',
                 avatar: 'https://placeimg.com/140/140/any',
             }}
-            renderMessage={(props) => (
-                <Message {...props} messageTextStyle={{ fontSize: 16 }} />
-            )}
+            renderMessage={(props) => {
+                console.log(props.currentMessage, props.nextMessage, props.previousMessage)
+                return (
+                    <Message {...props} messageTextStyle={{ fontSize: 16 }} />
+                )
+            }}
         />
     )
 }

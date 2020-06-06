@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Text component Snapshots should render correctly with props 1`] = `
+<Text
+  onPress={[Function]}
+  style={
+    Object {
+      "color": "pink",
+      "fontFamily": "RobotoMono-Medium",
+      "fontSize": 24,
+      "fontWeight": "500",
+      "margin": 10,
+    }
+  }
+>
+  Hello
+</Text>
+`;
+
+exports[`Text component Snapshots should render correctly without props 1`] = `
+<Text
+  onPress={null}
+  style={
+    Object {
+      "color": "#333",
+      "fontFamily": "RobotoMono-Medium",
+      "fontSize": 18,
+      "fontWeight": "300",
+    }
+  }
+>
+  Hello
+</Text>
+`;

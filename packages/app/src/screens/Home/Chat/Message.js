@@ -7,11 +7,11 @@ import Bubble from './Bubble'
 export default function Message(props) {
 
     const getInnerComponentProps = () => {
-        const isUser = props.currentMessage.user._id === 1
+        const isMe = props.currentMessage.user._id === 1
 
         return {
             ...props,
-            position: isUser ? 'right' : 'left',
+            position: isMe ? 'right' : 'left',
         }
     }
 

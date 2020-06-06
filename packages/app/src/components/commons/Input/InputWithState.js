@@ -5,8 +5,13 @@ import PropTypes from 'prop-types'
 import { getKeyboardType } from '../../../utils/Device'
 import styles from './styles'
 
-const Input = ({ placeholder, onChangeText, value, type }) => {
+
+// To test onChangeText method
+
+const Input = ({ placeholder, type }) => {
     const isSecure = type === 'password'
+
+    const [value, setValue] = useState('')
 
     return (
         <TextInput 
@@ -15,7 +20,7 @@ const Input = ({ placeholder, onChangeText, value, type }) => {
             placeholderTextColor='#666'
             secureTextEntry={isSecure}
             value={value}
-            onChangeText={onChangeText}
+            onChangeText={(v) => setValue(v)}
             keyboardType={getKeyboardType(type)}
         />
     )
@@ -23,8 +28,6 @@ const Input = ({ placeholder, onChangeText, value, type }) => {
 
 Input.propTypes = {
     placeholder: PropTypes.string,
-    onChangeText: PropTypes.func.isRequired,
-    value: PropTypes.string.isRequired,
     type: PropTypes.string
 }
 

@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input Component Snapshots render run with default props 1`] = `
+<Component
+  allowFontScaling={true}
+  keyboardType="default"
+  onChangeText={[MockFunction]}
+  placeholder="Type here..."
+  placeholderTextColor="#666"
+  rejectResponderTermination={true}
+  secureTextEntry={false}
+  style={
+    Object {
+      "borderColor": "#333",
+      "borderRadius": 10,
+      "borderWidth": 1,
+      "color": "#333",
+      "margin": 10,
+      "paddingHorizontal": 10,
+      "paddingVertical": 10,
+    }
+  }
+  underlineColorAndroid="transparent"
+  value="value"
+/>
+`;
+
+exports[`Input Component Snapshots render run with some props 1`] = `
+<Component
+  allowFontScaling={true}
+  keyboardType="default"
+  onChangeText={[MockFunction]}
+  placeholder="placeholder"
+  placeholderTextColor="#666"
+  rejectResponderTermination={true}
+  secureTextEntry={true}
+  style={
+    Object {
+      "borderColor": "#333",
+      "borderRadius": 10,
+      "borderWidth": 1,
+      "color": "#333",
+      "margin": 10,
+      "paddingHorizontal": 10,
+      "paddingVertical": 10,
+    }
+  }
+  underlineColorAndroid="transparent"
+  value="value"
+/>
+`;

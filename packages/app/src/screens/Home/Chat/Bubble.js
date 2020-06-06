@@ -3,15 +3,11 @@ import {
   Text,
   StyleSheet,
   View,
-  Platform,
 } from 'react-native'
-
-import { MessageText } from 'react-native-gifted-chat'
 
 export default function Bubble(props) {
 
     const renderMessageText = () => {
-        console.log(props)
         const { text } = props.currentMessage
         if (text) {
             if (props.position === 'left') {

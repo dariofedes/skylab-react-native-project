@@ -6,7 +6,7 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
-    "test": "jest",
+    "test": "jest --coverage --config jest.config.js",
     "lint": "eslint ."
   },
   "dependencies": {
@@ -19,6 +19,8 @@
     "@skylab/client-logic": "*",
     "@skylab/services": "*",
     "add": "^2.0.6",
+    "babel-plugin-module-resolver": "^4.0.0",
+    "prop-types": "^15.7.2",
     "react": "16.11.0",
     "react-native": "0.62.2",
     "react-native-calendars": "^1.282.0",
