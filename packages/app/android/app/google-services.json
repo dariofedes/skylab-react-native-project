@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1088833121018",
+    "firebase_url": "https://spacex-skylab-course.firebaseio.com",
+    "project_id": "spacex-skylab-course",
+    "storage_bucket": "spacex-skylab-course.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1088833121018:android:0503b24c779a82c6133743",
+        "android_client_info": {
+          "package_name": "com.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1088833121018-3mpju97d66j1h8dsefs2no634itnrpma.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.app",
+            "certificate_hash": "6aac250de0097e6b1fbd34e9baff0ad7c4e98d85"
+          }
+        },
+        {
+          "client_id": "1088833121018-v388j1buljcpnhpq3ml0gv9ojg17brqa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBI16cHjM6azOvlg3_nG3zwa-oL9J-bCNQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1088833121018-v388j1buljcpnhpq3ml0gv9ojg17brqa.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1088833121018-54lgd8cdoon5s90eait3as6lg1v8men0.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.reactjs.native.example.app"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -98,8 +98,6 @@ target 'app' do
   pod 'Permission-SpeechRecognition', :path => "#{permissions_path}/SpeechRecognition.podspec"
   pod 'Permission-StoreKit', :path => "#{permissions_path}/StoreKit.podspec"
 
-
-
   target 'appTests' do
     inherit! :complete
     # Pods for testing

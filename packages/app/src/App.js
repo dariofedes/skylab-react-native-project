@@ -12,6 +12,8 @@ import Home from './screens/Home'
 import Context from '@skylab/services/src/Context';
 import { API_URL } from '../config'
 
+import { configureNotitications } from './Notifications'
+
 Context.API_URL = API_URL
 Context.storage = AsyncStorage
 
@@ -24,6 +26,8 @@ const App = () => {
 
   useEffect(() => {
     (async () => {
+      configureNotitications();
+
       let _language = await AsyncStorage.getItem('language')
 
       if(!_language) {

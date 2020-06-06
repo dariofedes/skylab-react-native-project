@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { View, Alert } from 'react-native'
 import { Agenda } from 'react-native-calendars'
 import DateTimePicker from '@react-native-community/datetimepicker';
+import { sendNotification } from '../../../Notifications'
 
 import Dictionary from './dictionaty'
 import Text from '../../../components/commons/Text'
@@ -25,8 +26,6 @@ export default function Lists({ navigation, route }) {
             // cuando se va de la pantalla
             console.log('hello! i am blurred!', e)
         });
-
-        console.log('navigation => ', navigation, route)
 
         // const unsubscribePress = navigation.addListener('tabPress', e => {
         //     // Prevent default action
@@ -64,18 +63,20 @@ export default function Lists({ navigation, route }) {
 
             <Button text={Dictionary[language].button} onPress={() => setShowPicker(true)} />
             {showPicker && <DateTimePicker
-            testID="dateTimePicker"
-            value={new Date('2020-06-04')}
-            is24Hour={true}
-            display="default"
-            onChange={(date) => {
-                console.log(date)
-                setDate(date.nativeEvent.timestamp)
-                setShowPicker(false)
-            }}
-             />}
+                testID="dateTimePicker"
+                value={new Date('2020-06-04')}
+                is24Hour={true}
+                display="default"
+                onChange={(date) => {
+                    console.log(date)
+                    setDate(date.nativeEvent.timestamp)
+                    setShowPicker(false)
+                }}
+            />}
+            {date ? <Text>{date}</Text> : null}
 
-       {date ? <Text>{date}</Text> : null}
+
+            <Button text='Send Notification' onPress={() => sendNotification()} />
         </View>
     )
 }
