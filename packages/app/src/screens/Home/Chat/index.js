@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { StatusBar } from 'react-native'
 import { GiftedChat } from 'react-native-gifted-chat'
 
 import Message from './Message'
@@ -9,6 +10,16 @@ export default function Chat(props) {
 
     useEffect(() => {
         setMessages(EXAMPLE_MESSAGES)
+
+        props.navigation.addListener('focus', () => {
+            StatusBar.setBackgroundColor('#73b9ff', true)
+            StatusBar.setBarStyle('dark-content', true)
+        })
+
+        props.navigation.addListener('blur', () => {
+            StatusBar.setBackgroundColor('#ebbf47', true)
+            StatusBar.setBarStyle('light-content', true)
+        })
     }, [])
     
 

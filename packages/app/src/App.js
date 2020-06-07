@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { SafeAreaView, AsyncStorage } from 'react-native';
+import { SafeAreaView, AsyncStorage, StatusBar } from 'react-native';
 import { Root } from 'native-base'
 import { getLocales } from 'react-native-localize'
 import { createStackNavigator } from '@react-navigation/stack';
@@ -45,6 +45,7 @@ const App = () => {
   return language ? (
     <Provider language={language}>
       <SafeAreaView style={{ flex: 1 }}>
+        <StatusBar backgroundColor='#ebbf47' barStyle='light-content' />
         <Root>
         <NavigationContainer>
           <STACK.Navigator initialRouteName='Register'  >

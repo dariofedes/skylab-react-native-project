@@ -2,7 +2,7 @@
     "name": "skylab",
     "version": "0.0.1",
     "private": true,
-    "main": "index.js",
+    "main": "packages/app/index.js",
     "scripts": {
       "test": "yarn workspaces run test",
       "lint": "yarn workspaces run lint"
